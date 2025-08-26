@@ -2,7 +2,7 @@
 
 A simple Rust library for sending and receiving TCP messages.
 
-[![Crates.io](https://crates.io/crates/nervo)
+(https://crates.io/crates/nervo)
 
 ## Installation
 
@@ -10,19 +10,10 @@ Add to your `Cargo.toml`:
 
 ```
 [dependencies]
-nervo = "0.1.0"
-
+nervo = "0.2.0"
 ```
-
-
-
-
 Usage
-```send(text: &str, ip_port: &str) – send a text message to a TCP server```
-
-```rec(port: String)``` – run a blocking TCP server that reads incoming messages
-Sending messages:
-```
+```Rust
 use nervo::send;
 
 fn main() -> std::io::Result<()> {
@@ -31,13 +22,21 @@ fn main() -> std::io::Result<()> {
 }
 ```
 Receiving messages
-```
+```Rust
 use nervo::rec;
 
 fn main() {
-    rec(":8080".to_string());
+    // Start TCP server and get a receiver for incoming messages
+    let rx = rec(":8080");
+
+    // Receive one message
+    if let Ok(msg) = rx.recv() {
+        println!("Received: {}", msg);
+    }
 }
 ```
 Pass the port as ":PORT" (e.g., ":8080").
 
-The function blocks and accepts incoming connections, reading data into a String.
+The rec function runs the server in a separate thread and sends incoming messages via a channel.
+
+This way, you can process received messages in your main thread.
