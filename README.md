@@ -18,6 +18,9 @@ nervo = "0.1.0"
 
 
 Usage
+```send(text: &str, ip_port: &str) – send a text message to a TCP server```
+
+```rec(port: String)``` – run a blocking TCP server that reads incoming messages
 Sending messages:
 ```
 use nervo::send;
