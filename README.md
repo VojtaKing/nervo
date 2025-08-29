@@ -19,7 +19,7 @@ fn main() -> std::io::Result<()> {
     send("Hello", "127.0.0.1:8080")?;
     Ok(())
 }
-```Rust
+```
 
 The send function connects to the specified TCP address and sends a single message. Each message should end with a newline (\n) for proper reception.
 
@@ -39,7 +39,7 @@ fn main() {
         // Other logic (game loop, GUI updates, etc.) can run here
     }
 }
-```Rust
+```
 
 Pass the port as ":PORT" (e.g., ":8080").
 
