@@ -1,16 +1,10 @@
 Nervo TCP Library
 
-A simple Rust library for sending and receiving TCP messages in a separate thread. Suitable for realtime applications like games.
+A simple Rust library for sending and receiving TCP messages in a separate thread. 
 
-Crates.io
 
-Installation
 
-Add to your Cargo.toml:
-```toml
-[dependencies]
-nervo = "0.2.0"
-```
+
 Usage
 Sending messages
 ```Rust
