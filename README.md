@@ -7,14 +7,15 @@ Crates.io
 Installation
 
 Add to your Cargo.toml:
-
+```toml
 [dependencies]
 nervo = "0.2.0"
-
+```
 Usage
 Sending messages
-use nervo::send;
 ```Rust
+use nervo::send;
+
 fn main() -> std::io::Result<()> {
     send("Hello", "127.0.0.1:8080")?;
     Ok(())
