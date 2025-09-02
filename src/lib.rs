@@ -3,15 +3,14 @@ use std::net::{TcpListener, TcpStream};
 use std::sync::mpsc::{channel, Receiver, Sender};
 use std::thread;
 
-// posílání zprávy
+// sending
 pub fn send(text: &str, ip_port: &str) -> std::io::Result<()> {
     let mut stream = TcpStream::connect(ip_port)?;
     stream.write_all(text.as_bytes())?;
-    stream.write_all(b"\n")?; // oddělovač zpráv
+    stream.write_all(b"\n")?;
     Ok(())
-}
 
-// přijímání zpráv realtime
+/receiving
 pub fn rec(port: &str) -> Receiver<String> {
     let (tx, rx): (Sender<String>, Receiver<String>) = channel();
     let port = port.to_string();
