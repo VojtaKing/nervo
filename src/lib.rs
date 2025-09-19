@@ -10,7 +10,7 @@ pub fn send(text: &str, ip_port: &str) -> std::io::Result<()> {
     stream.write_all(b"\n")?;
     Ok(())
 
-/receiving
+//receiving
 pub fn rec(port: &str) -> Receiver<String> {
     let (tx, rx): (Sender<String>, Receiver<String>) = channel();
     let port = port.to_string();
